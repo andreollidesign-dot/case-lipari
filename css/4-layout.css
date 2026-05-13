@@ -1,0 +1,570 @@
+/* ==========================================================================
+   4-layout.css
+   Container, sezioni, struttura generale, header e footer
+   ========================================================================== */
+
+/* --- Container --------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-inline: var(--container-padding);
+}
+
+.container-narrow {
+  width: 100%;
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding-inline: var(--container-padding);
+}
+
+/* --- Sezioni ----------------------------------------------------------- */
+.section {
+  padding-block: var(--space-3xl);
+}
+
+.section-sm {
+  padding-block: var(--space-2xl);
+}
+
+.section-lg {
+  padding-block: var(--space-4xl);
+}
+
+.section-alt {
+  background-color: var(--color-bianco-calce-soft);
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding-block: var(--space-2xl);
+  }
+  .section-lg {
+    padding-block: var(--space-3xl);
+  }
+}
+
+/* --- Main: offset per header fixed ------------------------------------ */
+main {
+  padding-top: var(--header-height);
+}
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background-color: var(--color-bianco-calce);
+  border-bottom: 1px solid transparent;
+  z-index: var(--z-header);
+  transition: border-color var(--transition-medium),
+              background-color var(--transition-medium);
+}
+
+.site-header.is-scrolled {
+  border-bottom-color: var(--color-blu-notte-faint);
+}
+
+.site-header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+/* Logo nell'header */
+.site-header__logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.site-header__logo svg,
+.site-header__logo img {
+  height: 44px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .site-header__logo svg,
+  .site-header__logo img {
+    height: 38px;
+  }
+}
+
+/* Navigazione desktop
+   La <nav> ora    FUORI dall'<header> (per risolvere il bug
+   dello stacking context del drawer mobile). Su desktop la rendo
+   posizionata fixed sulla stessa riga dell'header, larga come
+   il container, con voci allineate a destra.
+   pointer-events:none sul wrapper trasparente per non bloccare
+   click sul logo che sta sotto, e pointer-events:auto sulle
+   voci e sul lang switcher per renderle cliccabili. */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-xl);
+  padding-inline: var(--container-padding);
+  max-width: var(--container-max);
+  margin: 0 auto;
+  z-index: calc(var(--z-header) + 1);
+  pointer-events: none;
+}
+
+.site-nav > * {
+  pointer-events: auto;
+}
+
+.site-nav__list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.site-nav__link {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-blu-notte);
+  position: relative;
+  padding-block: var(--space-2xs);
+  transition: color var(--transition-fast);
+}
+
+.site-nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-ocra-dorata);
+  transition: width var(--transition-medium);
+}
+
+.site-nav__link:hover,
+.site-nav__link.is-active {
+  color: var(--color-blu-notte);
+}
+
+.site-nav__link:hover::after,
+.site-nav__link.is-active::after {
+  width: 100%;
+}
+
+/* Lang switcher */
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  letter-spacing: var(--ls-label);
+}
+
+.lang-switcher__btn {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-blu-notte-soft);
+  padding: var(--space-3xs) var(--space-2xs);
+  transition: color var(--transition-fast);
+}
+
+.lang-switcher__btn:hover {
+  color: var(--color-blu-notte);
+}
+
+.lang-switcher__btn.is-active {
+  color: var(--color-ocra-dorata);
+  font-weight: var(--fw-semibold);
+}
+
+.lang-switcher__sep {
+  color: var(--color-blu-notte-faint);
+}
+
+/* --- Hamburger (solo mobile) ------------------------------------------- */
+.hamburger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: calc(var(--z-mobile-menu) + 1);
+}
+
+.hamburger__lines {
+  position: relative;
+  width: 24px;
+  height: 14px;
+}
+
+.hamburger__lines span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-blu-notte);
+  transition: transform var(--transition-medium),
+              opacity var(--transition-fast),
+              top var(--transition-medium);
+}
+
+.hamburger__lines span:nth-child(1) { top: 0; }
+.hamburger__lines span:nth-child(2) { top: 50%; }
+.hamburger__lines span:nth-child(3) { top: 100%; }
+
+.hamburger.is-open .hamburger__lines span:nth-child(1) {
+  top: 50%;
+  transform: rotate(45deg);
+}
+
+.hamburger.is-open .hamburger__lines span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.is-open .hamburger__lines span:nth-child(3) {
+  top: 50%;
+  transform: rotate(-45deg);
+}
+
+/* --- Mobile menu drawer ------------------------------------------------ */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    width: 100%;
+    max-width: 380px;
+    height: 100%;
+    margin: 0;
+    padding-inline: 0;
+    pointer-events: auto;
+    background-color: var(--color-bianco-calce);
+    border-left: 1px solid var(--color-blu-notte-faint);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: var(--space-xl);
+    padding: calc(var(--header-height) + var(--space-xl)) var(--space-xl) var(--space-xl);
+    transform: translateX(100%);
+    transition: transform var(--transition-medium);
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .site-nav.is-open {
+    transform: translateX(0);
+  }
+
+  .site-nav__list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    width: 100%;
+  }
+
+  .site-nav__link {
+    font-family: var(--font-display);
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-regular);
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  .site-nav__link::after {
+    display: none;
+  }
+
+  .lang-switcher {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-blu-notte-faint);
+    width: 100%;
+  }
+}
+
+/* Body lock quando menu mobile aperto */
+body.is-menu-open {
+  overflow: hidden;
+}
+
+/* Backdrop quando menu mobile aperto */
+.menu-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: var(--color-overlay);
+  z-index: 900;
+  opacity: 0;
+  transition: opacity var(--transition-medium);
+}
+
+@media (max-width: 900px) {
+  body.is-menu-open .menu-backdrop {
+    display: block;
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   FOOTER — versione aggiornata
+   ==========================================================================
+
+   Cosa è cambiato rispetto a prima:
+   - .site-footer__tagline RIMOSSO (era ridondante con l'hero della home)
+   - .site-footer__top: 4 colonne ridistribuite con larghezze nuove
+   - .site-footer__bottom: 3 gruppi (copyright | legale | credit)
+   - .site-footer__legal: nuovo, raccoglie privacy + cookie + CIN + CIR
+   - Tutto in flex con flex-wrap per gestire elegantemente il mobile
+
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--color-blu-notte);
+  color: var(--color-bianco-calce);
+  padding-block: var(--space-3xl) var(--space-xl);
+}
+
+/* --- Top: due tier verticali --------------------------------------------
+   Struttura:
+   1. Tier info: 3 colonne (Le case | Contatti | Lingua), equidistribuite
+   2. Tier brand: simbolo + logotipo centrati come firma del footer
+   I due tier sono separati da uno spazio respiro e da una linea sottile.
+   ------------------------------------------------------------------------ */
+.site-footer__top {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  padding-bottom: var(--space-2xl);
+  border-bottom: 1px solid rgba(250, 248, 243, 0.15);
+}
+
+/* Tier 1: tre colonne di info proporzionate al peso del contenuto
+   - "Le case": 3 link brevi
+   - "Contatti": 4 link tra cui l'email che è il pi  lungo
+   - "Lingua": solo IT · EN · DE, molto compatto
+   Le proporzioni 1 / 1.8 / 0.8 bilanciano otticamente le tre colonne. */
+.site-footer__info {
+  display: grid;
+  grid-template-columns: 1fr 1.8fr 0.8fr;
+  gap: var(--space-xl);
+}
+
+@media (max-width: 768px) {
+  .site-footer__info {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+  }
+  /* Il lang switcher (IT · EN · DE)    un flex container,
+     quindi text-align non lo influenza: lo centriamo esplicitamente */
+  .site-footer__lang {
+    justify-content: center;
+  }
+}
+
+/* --- Colonna Brand -----------------------------------------------------
+   Simbolo + logotipo "ZAGARA" impilati e centrati nella loro colonna.
+   Stessa composizione dell'hero della home (in scala ridotta) per
+   creare una rima visiva tra apertura e chiusura del sito.
+
+   Il logotipo SVG nel file ZAGARA.svg ha i colori originali; lo portiamo
+   in bianco-calce con `filter` per essere leggibile sul fondo blu notte
+   del footer (stessa tecnica usata nell'hero).
+   ----------------------------------------------------------------------- */
+/* --- Tier 2: Brand come firma del footer ---------------------------------
+   Simbolo + logotipo impilati e centrati. Funge da sigillo di chiusura
+   dell'identità, prima del bottom legale.
+   ------------------------------------------------------------------------ */
+.site-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  text-align: center;
+  padding-top: var(--space-md);
+}
+
+.site-footer__symbol {
+  width: 72px;
+  height: auto;
+}
+
+.site-footer__logotype {
+  width: 140px;
+  height: auto;
+  /* Bianco-calce per essere leggibile sul blu notte del footer */
+  filter: brightness(0) invert(1) opacity(0.95);
+}
+
+/* --- Titoli colonne ---------------------------------------------------- */
+.site-footer__col-title {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-verde-salvia);
+  margin-bottom: var(--space-md);
+}
+
+/* --- Liste link -------------------------------------------------------- */
+.site-footer__list li + li {
+  margin-top: var(--space-2xs);
+}
+
+.site-footer__list a {
+  color: var(--color-bianco-calce);
+  opacity: 0.8;
+  transition: opacity var(--transition-fast), color var(--transition-fast);
+  font-size: var(--fs-body);
+}
+
+.site-footer__list a:hover {
+  opacity: 1;
+  color: var(--color-ocra-dorata);
+}
+
+/* --- Lang switcher ----------------------------------------------------- */
+.site-footer__lang {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.site-footer__lang .lang-switcher__btn {
+  color: var(--color-bianco-calce);
+  opacity: 0.6;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  transition: opacity var(--transition-fast), color var(--transition-fast);
+}
+
+.site-footer__lang .lang-switcher__btn:hover {
+  opacity: 1;
+}
+
+.site-footer__lang .lang-switcher__btn.is-active {
+  color: var(--color-ocra-dorata);
+  opacity: 1;
+}
+
+.site-footer__lang .lang-switcher__sep {
+  color: var(--color-bianco-calce);
+  opacity: 0.3;
+}
+
+/* ==========================================================================
+   BOTTOM: copyright | legale (policy + CIN/CIR) | credit
+   Layout: flex con justify-content: space-between e flex-wrap.
+   Su desktop sta in una riga sola se c'è spazio; quando va a capo,
+   ogni gruppo resta unito.
+   ========================================================================== */
+
+.site-footer__bottom {
+  margin-top: var(--space-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-md) var(--space-xl);
+}
+
+/* Mobile: tutto impilato a sinistra */
+@media (max-width: 900px) {
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+}
+
+/* --- Gruppo 1: copyright ----------------------------------------------- */
+.site-footer__copyright {
+  font-size: var(--fs-small);
+  color: var(--color-bianco-calce);
+  opacity: 0.6;
+  margin: 0;
+}
+
+/* --- Gruppo 2: legale (policy + CIN/CIR sulla stessa riga) ------------- */
+.site-footer__legal {
+  font-size: var(--fs-small);
+  color: var(--color-bianco-calce);
+  opacity: 0.6;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2xs) var(--space-xs);
+}
+
+.site-footer__legal a {
+  color: var(--color-bianco-calce);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(250, 248, 243, 0.3);
+  transition: color var(--transition-fast),
+              text-decoration-color var(--transition-fast);
+}
+
+.site-footer__legal a:hover {
+  color: var(--color-ocra-dorata);
+  text-decoration-color: var(--color-ocra-dorata);
+}
+
+.site-footer__legal-sep {
+  opacity: 0.4;
+}
+
+.site-footer__legal-code {
+  /* I codici CIN/CIR sono dati ufficiali, non link.
+     Letter-spacing leggero per leggibilità dei numeri */
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Gruppo 3: credit -------------------------------------------------- */
+.site-footer__credit {
+  font-size: var(--fs-small);
+  color: var(--color-verde-salvia);
+  margin: 0;
+}
+
+.site-footer__credit a {
+  color: var(--color-verde-salvia);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition-fast);
+}
+
+.site-footer__credit a:hover {
+  border-bottom-color: var(--color-verde-salvia);
+}

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="it" data-i18n-title="contact.title" data-i18n-description="contact.description">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contatti & Prenotazioni · Zagara Lipari</title>
+  <meta name="description" content="Scrivimi per informazioni o prenotazioni a Villa Anna o Olivetta. Risposta entro 24 ore.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/svg/simbolo-logo.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/1-variables.css">
+  <link rel="stylesheet" href="css/2-reset.css">
+  <link rel="stylesheet" href="css/3-base.css">
+  <link rel="stylesheet" href="css/4-layout.css">
+  <link rel="stylesheet" href="css/5-components.css">
+  <link rel="stylesheet" href="css/7-contatti.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ============================================================
+         HERO CONTATTI
+         Registro: singolare-Greta (coerente con firma "— Greta"
+         delle CTA delle pagine casa).
+         ============================================================ -->
+    <section class="contact-hero">
+      <div class="container">
+        <div class="contact-hero__grid">
+
+          <div class="fade-in">
+            <h1 class="contact-hero__title" data-i18n="contact.heroTitle">
+              Scrivimi per maggiori info.
+            </h1>
+            <p class="contact-hero__intro" data-i18n="contact.heroIntro">
+              Sono disponibile a rispondere a qualsiasi domanda: sulla casa, sulla posizione, sui periodi disponibili. 
+            </p>
+          </div>
+
+          <div class="contact-hero__photo">
+           <div class="contact-hero__photo-wrapper">
+             <img src="assets/jpg/foto-greta.jpg" alt="Greta, gestione e prenotazioni" width="220" height="220" fetchpriority="high">
+           </div>
+             <p class="contact-hero__caption" data-i18n="contact.photoCaption">
+             Greta · Rispondo personalmente entro 24 ore.
+             </p>
+         </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FORM DI CONTATTO — canale principale
+         Backend: Formspree (AJAX).
+         Quando hai l'endpoint, sostituisci INSERISCI_TUO_ENDPOINT
+         nell'attributo action qui sotto (es. action="https://formspree.io/f/xayzqkpw").
+         Il submit è gestito da JavaScript (vedi js/contact-form.js):
+         intercetta l'invio, manda via fetch JSON, mostra messaggio
+         inline di conferma o errore senza ricaricare la pagina.
+         ============================================================ -->
+    <section class="contact-form-section">
+      <div class="container">
+        <div class="contact-form-section__inner">
+
+          <div class="section-header section-header--center fade-in">
+            <span class="section-header__eyebrow" data-i18n="contact.formEyebrow">Modulo di contatto</span>
+            <h2 class="section-header__title" data-i18n="contact.formTitle">Compila il modulo</h2>
+            <p class="section-header__subtitle" data-i18n="contact.formSubtitle">
+              Tutti i campi con * sono obbligatori. Gli altri sono opzionali ma aiutano a darti una risposta più precisa.
+            </p>
+          </div>
+
+          <!-- Wrapper: contiene il form E i messaggi di stato.
+               JS aggiunge .is-success o .is-error al wrapper per
+               nascondere/mostrare le sezioni giuste. -->
+          <div class="contact-form-wrapper fade-in delay-1" data-form-wrapper>
+
+            <form class="contact-form"
+                  action="https://formspree.io/f/INSERISCI_TUO_ENDPOINT"
+                  method="POST"
+                  data-contact-form
+                  novalidate>
+
+              <!-- Honeypot anti-spam: invisibile agli umani, i bot lo riempiono.
+                   Se questo campo arriva non vuoto, JS interrompe l'invio. -->
+              <div class="contact-form__honeypot" aria-hidden="true">
+                <label for="cf-website">Non compilare questo campo</label>
+                <input type="text" id="cf-website" name="_gotcha" tabindex="-1" autocomplete="off">
+              </div>
+
+              <!-- Riga 1: Nome + Email -->
+              <div class="contact-form__row">
+                <div class="contact-form__field">
+                  <label for="cf-name" class="contact-form__label">
+                    <span data-i18n="contact.fieldName">Nome</span>
+                    <span class="contact-form__required" aria-hidden="true">*</span>
+                  </label>
+                  <input type="text"
+                         id="cf-name"
+                         name="name"
+                         class="contact-form__input"
+                         required
+                         autocomplete="given-name"
+                         data-i18n-attr="placeholder:contact.fieldNamePlaceholder"
+                         placeholder="Nome e Cognome">
+                </div>
+
+                <div class="contact-form__field">
+                  <label for="cf-email" class="contact-form__label">
+                    <span data-i18n="contact.fieldEmail">Email</span>
+                    <span class="contact-form__required" aria-hidden="true">*</span>
+                  </label>
+                  <input type="email"
+                         id="cf-email"
+                         name="email"
+                         class="contact-form__input"
+                         required
+                         autocomplete="email"
+                         data-i18n-attr="placeholder:contact.fieldEmailPlaceholder"
+                         placeholder="nome@esempio.com">
+                </div>
+              </div>
+
+              <!-- Riga 2: Casa (select) -->
+              <div class="contact-form__field">
+                <label for="cf-house" class="contact-form__label">
+                  <span data-i18n="contact.fieldHouse">Casa</span>
+                  <span class="contact-form__required" aria-hidden="true">*</span>
+                </label>
+                <select id="cf-house"
+                        name="house"
+                        class="contact-form__select"
+                        required>
+                  <option value="" disabled selected data-i18n="contact.fieldHouseOption0">— Seleziona —</option>
+                  <option value="Villa Anna" data-i18n="contact.fieldHouseOption1">Villa Anna</option>
+                  <option value="Olivetta" data-i18n="contact.fieldHouseOption2">Olivetta</option>
+                  <option value="Entrambe" data-i18n="contact.fieldHouseOption3">Entrambe</option>
+                  <option value="Non so ancora" data-i18n="contact.fieldHouseOption4">Non so ancora</option>
+                </select>
+              </div>
+
+              <!-- Riga 3: Periodo + Ospiti -->
+              <div class="contact-form__row">
+                <div class="contact-form__field">
+                  <label for="cf-period" class="contact-form__label">
+                    <span data-i18n="contact.fieldPeriod">Periodo previsto</span>
+                  </label>
+                  <input type="text"
+                         id="cf-period"
+                         name="period"
+                         class="contact-form__input"
+                         data-i18n-attr="placeholder:contact.fieldPeriodPlaceholder"
+                         placeholder="Es. prima settimana di luglio, agosto flessibile…">
+                </div>
+
+                <div class="contact-form__field">
+                  <label for="cf-guests" class="contact-form__label">
+                    <span data-i18n="contact.fieldGuests">Numero di ospiti</span>
+                  </label>
+                  <input type="number"
+                         id="cf-guests"
+                         name="guests"
+                         class="contact-form__input"
+                         min="1"
+                         max="20"
+                         inputmode="numeric"
+                         data-i18n-attr="placeholder:contact.fieldGuestsPlaceholder"
+                         placeholder="Quante persone">
+                </div>
+              </div>
+
+              <!-- Riga 4: Messaggio -->
+              <div class="contact-form__field">
+                <label for="cf-message" class="contact-form__label">
+                  <span data-i18n="contact.fieldMessage">Messaggio</span>
+                  <span class="contact-form__required" aria-hidden="true">*</span>
+                </label>
+                <textarea id="cf-message"
+                          name="message"
+                          class="contact-form__textarea"
+                          rows="6"
+                          required
+                          minlength="10"
+                          data-i18n-attr="placeholder:contact.fieldMessagePlaceholder"
+                          placeholder="Raccontami cosa ti serve sapere…"></textarea>
+              </div>
+
+              <!-- Riga 5: Consenso privacy -->
+              <div class="contact-form__field contact-form__field--privacy">
+                <label class="contact-form__checkbox-label" for="cf-privacy">
+                  <input type="checkbox"
+                         id="cf-privacy"
+                         name="privacy"
+                         class="contact-form__checkbox"
+                         required>
+                  <span class="contact-form__checkbox-text" data-i18n="contact.fieldPrivacy">
+                    Ho letto la <a href="#" class="contact-form__privacy-link" data-i18n="contact.fieldPrivacyLink">privacy policy</a> e acconsento al trattamento dei miei dati per ricevere risposta alla mia richiesta. *
+                  </span>
+                </label>
+              </div>
+
+              <!-- Riga 6: Bottone invia -->
+              <div class="contact-form__actions">
+                <button type="submit" class="btn btn--primary contact-form__submit" data-form-submit>
+                  <span class="contact-form__submit-label" data-i18n="contact.formSubmit">Invia la richiesta</span>
+                  <span class="contact-form__submit-loader" aria-hidden="true">
+                    <span class="contact-form__loader-dot"></span>
+                    <span class="contact-form__loader-dot"></span>
+                    <span class="contact-form__loader-dot"></span>
+                  </span>
+                </button>
+              </div>
+
+            </form>
+
+            <!-- Messaggio di SUCCESSO inline (nascosto di default, JS lo mostra) -->
+            <div class="contact-form-status contact-form-status--success" data-form-success role="status" aria-live="polite">
+              <div class="contact-form-status__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12l5 5L20 7"/>
+                </svg>
+              </div>
+              <h3 class="contact-form-status__title" data-i18n="contact.successTitle">
+                Messaggio inviato.
+              </h3>
+              <p class="contact-form-status__text" data-i18n="contact.successText">
+                Grazie per avermi scritto. Ti rispondo entro 24 ore con tutte le informazioni che ti servono.
+              </p>
+              <p class="contact-form-status__signature" data-i18n="contact.successSignature">
+                — Greta
+              </p>
+            </div>
+
+            <!-- Messaggio di ERRORE inline (nascosto di default, JS lo mostra) -->
+            <div class="contact-form-status contact-form-status--error" data-form-error role="alert" aria-live="assertive">
+              <div class="contact-form-status__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 8v4"/>
+                  <path d="M12 16h.01"/>
+                </svg>
+              </div>
+              <h3 class="contact-form-status__title" data-i18n="contact.errorTitle">
+                Qualcosa è andato storto.
+              </h3>
+              <p class="contact-form-status__text" data-i18n="contact.errorText">
+                Non sono riuscita a inviare il messaggio. Puoi riprovare oppure scrivermi direttamente su WhatsApp o via email.
+              </p>
+              <button type="button" class="btn btn--dark contact-form-status__retry" data-form-retry data-i18n="contact.errorRetry">
+                Riprova
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTATTI RAPIDI — alternative al form
+         Posizionati DOPO il form: chi vuole il canale veloce
+         lo trova qui sotto, ma il canale principale è il form.
+         ============================================================ -->
+    <section class="contact-methods">
+      <div class="container">
+
+        <div class="section-header section-header--center fade-in">
+          <span class="section-header__eyebrow" data-i18n="contact.methodsEyebrow">Oppure</span>
+          <h2 class="section-header__title" data-i18n="contact.methodsTitle">Scrivimi direttamente</h2>
+        </div>
+
+        <div class="contact-methods__grid">
+
+          <a href="mailto:greta.andreolli@gmail.com" class="contact-method fade-in">
+            <div class="contact-method__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="1"/>
+                <path d="M3 7l9 6 9-6"/>
+              </svg>
+            </div>
+            <span class="contact-method__label" data-i18n="contact.methodEmailLabel">Email</span>
+            <span class="contact-method__value">greta.andreolli@gmail.com</span>
+          </a>
+
+          <a href="https://wa.me/39XXXXXXXXXX"
+             target="_blank"
+             rel="noopener"
+             class="contact-method fade-in delay-1">
+            <div class="contact-method__icon">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+            </div>
+            <span class="contact-method__label" data-i18n="contact.methodWhatsappLabel">WhatsApp</span>
+            <span class="contact-method__value">+39 XXX XXX XXXX</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FAQ — identica a prima
+         ============================================================ -->
+    <section class="contact-faq">
+      <div class="container">
+        <div class="contact-faq__inner">
+          <h2 class="contact-faq__title fade-in" data-i18n="contact.faqTitle">
+            Domande frequenti
+          </h2>
+
+          <div class="accordion fade-in delay-1">
+
+            <div class="accordion__item">
+              <button type="button" class="accordion__trigger">
+                <span data-i18n="contact.faq1Q">Qual è il soggiorno minimo?</span>
+                <span class="accordion__icon" aria-hidden="true"></span>
+              </button>
+              <div class="accordion__content">
+                <div class="accordion__inner">
+                  <p data-i18n="contact.faq1A">
+                    7 notti. Preferisco il check-in il sabato, ma sono flessibile — scrivimi.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button type="button" class="accordion__trigger">
+                <span data-i18n="contact.faq2Q">Posso portare animali domestici?</span>
+                <span class="accordion__icon" aria-hidden="true"></span>
+              </button>
+              <div class="accordion__content">
+                <div class="accordion__inner">
+                  <p data-i18n="contact.faq2A">
+                    No, le case non accettano animali.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button type="button" class="accordion__trigger">
+                <span data-i18n="contact.faq3Q">È possibile affittare entrambe le case insieme?</span>
+                <span class="accordion__icon" aria-hidden="true"></span>
+              </button>
+              <div class="accordion__content">
+                <div class="accordion__inner">
+                  <p data-i18n="contact.faq3A">
+                    Sì. Se siete un gruppo numeroso che vuole le due case, scrivimi per un preventivo dedicato.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion__item">
+              <button type="button" class="accordion__trigger">
+                <span data-i18n="contact.faq4Q">È inclusa la pulizia?</span>
+                <span class="accordion__icon" aria-hidden="true"></span>
+              </button>
+              <div class="accordion__content">
+                <div class="accordion__inner">
+                  <p data-i18n="contact.faq4A">
+                    Sì, le pulizie finali sono incluse nel prezzo per entrambe le proprietà.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+             <div class="accordion__item">
+              <button type="button" class="accordion__trigger">
+                <span data-i18n="contact.faq5Q">Come si raggiunge la casa?</span>
+                <span class="accordion__icon" aria-hidden="true"></span>
+              </button>
+              <div class="accordion__content">
+                <div class="accordion__inner">
+                  <p data-i18n="contact.faq5A">
+                    Sulla strada che sale verso Pirrera, a circa 3-5 km dal centro di Lipari. Auto o motorino indispensabili.
+                  </p>
+                  <p class="accordion__cta">
+                    <a href="https://maps.app.goo.gl/NJmhTpJ9hYoWaegK8"
+                       target="_blank"
+                       rel="noopener"
+                       data-i18n="footer.mapsLink">Apri in Google Maps</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/template.js"></script>
+  <script src="js/translation.js"></script>
+  <script src="js/contact-form.js"></script>
+</body>
+</html>

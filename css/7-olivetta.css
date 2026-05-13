@@ -1,0 +1,82 @@
+/* ==========================================================================
+   7-olivetta.css
+   Stili specifici della pagina OLIVETTA.
+
+   Olivetta riusa per la maggior parte gli stili .property-* definiti
+   in 7-villa-anna.css (carosello hero, descrizione, facility list,
+   prezzi, banner, gallery, CTA salvia). Qui ci sono solo le specificità
+   di Olivetta — principalmente la sezione "cucina sotto il portico"
+   che è la sua feature distintiva.
+   ========================================================================== */
+
+/* ==========================================================================
+   SEZIONE CUCINA (feature distintiva di Olivetta)
+   Blocco split foto + testo asimmetrico (foto a sinistra ~42%, testo a destra)
+   ========================================================================== */
+
+.olivetta-kitchen {
+  padding-block: var(--space-3xl);
+  background-color: var(--color-bianco-calce-soft);
+}
+
+.olivetta-kitchen__inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .olivetta-kitchen__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+/* --- Media (foto cucina) --------------------------------------------- */
+
+.olivetta-kitchen__media {
+  width: 100%;
+  overflow: hidden;
+}
+
+.olivetta-kitchen__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* --- Testo ----------------------------------------------------------- */
+
+.olivetta-kitchen__text .section-header__eyebrow {
+  display: block;
+  margin-bottom: var(--space-md);
+}
+
+.olivetta-kitchen__text h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-tight);
+  margin-bottom: var(--space-md);
+}
+
+.olivetta-kitchen__text p {
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  color: var(--color-blu-notte-soft);
+  margin-bottom: var(--space-md);
+}
+
+.olivetta-kitchen__text p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .olivetta-kitchen__text h2 {
+    font-size: var(--fs-h4);
+  }
+}

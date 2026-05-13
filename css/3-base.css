@@ -1,0 +1,106 @@
+/* ==========================================================================
+   3-base.css
+   Stili base sugli elementi HTML grezzi (tipografia, body, link)
+   ========================================================================== */
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--color-blu-notte);
+  background-color: var(--color-bianco-calce);
+}
+
+/* --- Titoli: Cormorant Garamond Regular (mai bold sui titoli) ----------- */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  color: var(--color-blu-notte);
+}
+
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+h5 { font-size: var(--fs-h5); }
+
+/* Italico per sottotitoli evocativi (es. tagline) */
+.text-italic {
+  font-style: italic;
+}
+
+/* --- Paragrafi --------------------------------------------------------- */
+p {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+p + p {
+  margin-top: var(--space-sm);
+}
+
+/* --- Link inline ------------------------------------------------------- */
+a {
+  color: var(--color-blu-notte);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-ocra-dorata);
+}
+
+/* Link con sottolineatura discreta (per testi inline nei contenuti) */
+.link-underline {
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+
+/* --- Label tipografica (uppercase, spaced) ----------------------------- */
+.label {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-verde-salvia);
+}
+
+.label-wide {
+  letter-spacing: var(--ls-label-wide);
+}
+
+/* --- Strong & emphasis -------------------------------------------------- */
+strong, b {
+  font-weight: var(--fw-semibold);
+}
+
+em, i {
+  font-style: italic;
+}
+
+/* --- Selezione testo ---------------------------------------------------- */
+::selection {
+  background-color: var(--color-ocra-dorata);
+  color: var(--color-bianco-calce);
+}
+
+/* --- Hr orizzontali decorativi ----------------------------------------- */
+hr {
+  border: none;
+  border-top: 1px solid var(--color-blu-notte-faint);
+  margin: var(--space-2xl) 0;
+}
+
+/* --- Immagini ---------------------------------------------------------- */
+img {
+  display: block;
+}
+
+/* --- Liste (per FAQ, facilities, ecc.) -------------------------------- */
+.list-clean li + li {
+  margin-top: var(--space-2xs);
+}

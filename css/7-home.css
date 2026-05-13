@@ -1,0 +1,401 @@
+/* ==========================================================================
+   7-home.css
+   Stili specifici della pagina HOME
+   ========================================================================== */
+
+/* ==========================================================================
+   HERO
+   Composizione centrata: eyebrow → simbolo → logotipo → tagline → CTA
+   ========================================================================== */
+
+.home-hero {
+  position: relative;
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: var(--space-3xl);
+  overflow: hidden;
+}
+
+/* Sfondo foto + overlay strutturato */
+.home-hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.home-hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Overlay: velo uniforme + gradiente più scuro al centro per leggibilità */
+.home-hero__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    /* Gradiente radiale al centro per dare risalto al brand */
+    radial-gradient(
+      ellipse at center,
+      rgba(28, 43, 58, 0.45) 0%,
+      rgba(28, 43, 58, 0.55) 50%,
+      rgba(28, 43, 58, 0.65) 100%
+    ),
+    /* Velo uniforme di base */
+    linear-gradient(
+      to bottom,
+      rgba(28, 43, 58, 0.25) 0%,
+      rgba(28, 43, 58, 0.35) 100%
+    );
+}
+
+/* Contenuto centrato */
+.home-hero__content {
+  position: relative;
+  text-align: center;
+  color: var(--color-bianco-calce);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* Eyebrow sopra il brand */
+.home-hero__eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label-wide);
+  color: var(--color-bianco-calce);
+  opacity: 0.85;
+  margin-bottom: var(--space-xl);
+}
+
+/* Brand block: simbolo + logotipo */
+.home-hero__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.home-hero__symbol {
+  width: 120px;
+  height: auto;
+  /* Simbolo lasciato nei suoi colori originali: il fondo bianco-calce
+     dei petali e i raggi ocra restano leggibili sull'overlay scuro. */
+}
+
+.home-hero__logotype {
+  width: 280px;
+  height: auto;
+  /* Logotipo "Zagara" portato in bianco-calce per essere leggibile
+     sull'overlay scuro dell'hero. Perdiamo l'A in ocra ma guadagniamo
+     in pulizia e leggibilità. */
+  filter: brightness(0) invert(1) opacity(0.95);
+}
+
+/* Tagline italica */
+.home-hero__tagline {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-tight);
+  color: var(--color-bianco-calce);
+  opacity: 0.95;
+  max-width: 560px;
+  margin: 0 auto var(--space-xl);
+}
+
+/* CTA: bottone outlined chiaro che scrolla alle properties */
+.home-hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-bianco-calce);
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid var(--color-bianco-calce);
+  background-color: transparent;
+  text-decoration: none;
+  transition: background-color var(--transition-medium),
+              color var(--transition-medium),
+              gap var(--transition-fast);
+}
+
+.home-hero__cta:hover {
+  background-color: var(--color-bianco-calce);
+  color: var(--color-blu-notte);
+  gap: var(--space-sm);
+}
+
+.home-hero__cta-arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.home-hero__cta:hover .home-hero__cta-arrow {
+  transform: translateY(2px);
+}
+
+/* Hero responsive: dimensioni ridotte su tablet/mobile */
+@media (max-width: 900px) {
+  .home-hero__symbol {
+    width: 96px;
+  }
+  .home-hero__logotype {
+    width: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-hero {
+    min-height: calc(85vh - var(--header-height));
+  }
+  .home-hero__symbol {
+    width: 80px;
+  }
+  .home-hero__logotype {
+    width: 180px;
+  }
+  .home-hero__eyebrow {
+    margin-bottom: var(--space-lg);
+    font-size: 12px;
+  }
+  .home-hero__tagline {
+    font-size: var(--fs-h5);
+    margin-bottom: var(--space-lg);
+  }
+  .home-hero__brand {
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+}
+
+/* ==========================================================================
+   VIVERE ZAGARA
+   ========================================================================== */
+
+.home-intro {
+  padding-block: var(--space-3xl);
+}
+
+.home-intro__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+}
+
+.home-intro__eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label-wide);
+  color: var(--color-verde-salvia);
+  margin-bottom: var(--space-md);
+  text-align: center;
+}
+
+.home-intro__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-style: italic;
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+  line-height: var(--lh-tight);
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.home-intro__body {
+  max-width: var(--container-max);
+  margin: 0 auto var(--space-2xl);
+}
+
+.home-intro__body p {
+  font-size: var(--fs-h5);
+  line-height: 1.7;
+  color: var(--color-blu-notte);
+  margin-bottom: var(--space-md);
+}
+
+.home-intro__body p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .home-intro {
+    padding-block: var(--space-2xl);
+  }
+  .home-intro__body p {
+    font-size: var(--fs-body);
+  }
+  .home-intro__title {
+    margin-bottom: var(--space-xl);
+  }
+}
+
+/* ==========================================================================
+   PILLAR BLOCK (4 fatti chiave)
+   Layout: 4 colonne desktop, 2 colonne tablet, 1 colonna mobile
+   ========================================================================== */
+
+.home-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--color-blu-notte-faint);
+}
+
+.home-pillars__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding-right: var(--space-md);
+}
+
+.home-pillars__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-verde-salvia);
+}
+
+.home-pillars__value {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-blu-notte);
+}
+
+@media (max-width: 900px) {
+  .home-pillars {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl) var(--space-lg);
+  }
+}
+
+@media (max-width: 540px) {
+  .home-pillars {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+  .home-pillars__item {
+    padding-right: 0;
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-blu-notte-faint);
+  }
+  .home-pillars__item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+}
+
+/* ==========================================================================
+   BANNER FOTO (full-bleed, vista da Pirrera)
+   ========================================================================== */
+.home-banner {
+  width: 100%;
+  /* Aspect ratio cinematografico sottile: taglia il cielo in eccesso
+     e mette in evidenza la zona viva della foto (palma, paese, mare). */
+  aspect-ratio: 32 / 9;
+  overflow: hidden;
+  background-color: var(--color-placeholder);
+}
+
+.home-banner__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Object-position spostato in basso per mostrare di più la vista
+     (paese di Lipari, mare, ulivi) e meno cielo */
+  object-position: center 70%;
+  display: block;
+}
+
+/* Su mobile nascondiamo il banner: occupa molto spazio verticale
+   ed è ridondante con il banner dell'hero gi  presente in cima */
+@media (max-width: 768px) {
+  .home-banner {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   LE DUE CASE
+   ========================================================================== */
+
+.home-properties {
+  padding-block: var(--space-3xl);
+  background-color: var(--color-bianco-calce-soft);
+  /* Margine top zero perché il banner foto fa già da separatore visivo */
+}
+
+.home-properties__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  margin-top: var(--space-2xl);
+}
+
+.property-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 900px) {
+  .home-properties__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+}
+
+/* ==========================================================================
+   LOGO SIMBOLO DECORATIVO (separatore tra sezioni)
+   Mantengo per riuso futuro
+   ========================================================================== */
+
+.symbol-divider {
+  display: flex;
+  justify-content: center;
+  padding-block: var(--space-md);
+}
+
+.symbol-divider__icon {
+  width: 48px;
+  height: auto;
+  opacity: 0.4;
+}
+/* ==========================================================================
+   MOBILE: spazi tra sezioni ridotti
+   Su mobile i 96px (space-3xl) sopra/sotto ogni sezione sono troppi:
+   li riduciamo a 64px per avvicinare i contenuti tra loro.
+   ========================================================================== */
+@media (max-width: 768px) {
+  .home-intro,
+  .home-properties {
+    padding-block: var(--space-2xl);
+  }
+
+  /* L'hero mobile pu  essere un po' meno alto */
+  .home-hero {
+    padding-block: var(--space-2xl);
+  }
+}

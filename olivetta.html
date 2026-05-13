@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="it" data-i18n-title="olivetta.title" data-i18n-description="olivetta.description">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olivetta · Casa vacanza per coppie e piccole famiglie · Lipari, Eolie</title>
+  <meta name="description" content="Olivetta, dependance nel giardino di Pirrera. Cucina sotto portico aperto, doccia esterna, terrazza con vista sull'arcipelago. Per coppie e piccole famiglie fino a 4 ospiti.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/svg/simbolo-logo.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/1-variables.css">
+  <link rel="stylesheet" href="css/2-reset.css">
+  <link rel="stylesheet" href="css/3-base.css">
+  <link rel="stylesheet" href="css/4-layout.css">
+  <link rel="stylesheet" href="css/5-components.css">
+  <!-- Olivetta usa anche villa-anna.css per le classi .property-* condivise -->
+  <link rel="stylesheet" href="css/7-villa-anna.css">
+  <link rel="stylesheet" href="css/7-olivetta.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ============================================================
+         HERO FULL-BLEED CON CAROSELLO
+         3 foto in dissolvenza incrociata
+         (facciata → portico-cucina → terrazza)
+         Cambio automatico ogni 4 secondi, transizione 1 secondo.
+         Stessa logica e stessi attributi di Villa Anna:
+         data-hero-carousel sulla section, data-hero-slide sulle img.
+         ============================================================ -->
+    <section class="property-hero" data-hero-carousel>
+      <div class="property-hero__bg">
+        <img src="assets/png/olivetta/foto-olivetta-casa.png"
+             alt="Olivetta — facciata della dependance immersa nel verde"
+             class="property-hero__img is-active"
+             data-hero-slide="0">
+        <img src="assets/jpg/olivetta/foto-olivetta-terrazzo3.jpg"
+             alt="Olivetta — cucina sotto il portico aperta su tre lati"
+             class="property-hero__img"
+             data-hero-slide="1">
+        <img src="assets/jpg/olivetta/foto-olivetta-copertina.jpg"
+             alt="Olivetta — terrazza panoramica con vista sull'arcipelago"
+             class="property-hero__img"
+             data-hero-slide="2">
+      </div>
+
+      <div class="container">
+        <div class="property-hero__content">
+
+          <span class="property-hero__eyebrow fade-in" data-i18n="olivetta.heroEyebrow">
+            Per coppie e piccole famiglie
+          </span>
+
+          <h1 class="property-hero__title fade-in delay-1" data-i18n="olivetta.heroTitle">
+            Olivetta
+          </h1>
+
+          <p class="property-hero__subtitle fade-in delay-2" data-i18n="olivetta.heroSubtitle">
+            La dependance nel giardino, all'ombra del grande ulivo
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DESCRIZIONE — 2 paragrafi narrativi
+         Testo fornito dal cliente, leggermente impaginato in 2 paragrafi
+         per coerenza con Villa Anna.
+         ============================================================ -->
+    <section class="property-description">
+      <div class="container">
+        <div class="property-description__inner">
+          <p class="fade-in" data-i18n="olivetta.descP1">
+            Olivetta è la dependance del giardino: indipendente, raccolta e protetta dal grande ulivo che le dà il nome. È la scelta ideale per una famiglia o una coppia di amici, con quattro posti letto ben distribuiti. Il cuore della casa è la cucina sotto il portico, aperta su tre lati: uno spazio dove la colazione e la cena hanno sempre l'arcipelago come sfondo.
+          </p>
+          <p class="fade-in delay-1" data-i18n="olivetta.descP2">
+            All'interno, una camera matrimoniale e una doppia (con letti unibili) offrono massima flessibilità. I bagni sono due, di cui uno con la doccia esterna per lavarsi sotto il cielo. Dalla terrazza la vista corre sul mare, mentre la scalinata accanto a casa conduce, con una breve passeggiata, direttamente alla spiaggia di Canneto.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         KITCHEN FEATURE — sezione distintiva di Olivetta
+         Isola visivamente il differenziatore principale (cucina sotto portico)
+         con un blocco split foto + testo asimmetrico.
+         Copy riscritto, asciutto, con menzione della dispensa interna.
+         ============================================================ -->
+    <section class="olivetta-kitchen section-alt">
+      <div class="container">
+        <div class="olivetta-kitchen__inner">
+
+          <div class="olivetta-kitchen__media fade-in">
+            <div class="aspect-landscape">
+              <img src="assets/png/olivetta/foto-olivetta-cucina1.png"
+                   alt="Olivetta — dettaglio della cucina sotto il portico"
+                   class="olivetta-kitchen__img">
+            </div>
+          </div>
+
+          <div class="olivetta-kitchen__text fade-in delay-2">
+            <span class="section-header__eyebrow" data-i18n="olivetta.kitchenEyebrow">
+              La cucina sotto il portico
+            </span>
+            <h2 data-i18n="olivetta.kitchenTitle">
+              Una soglia tra la casa e il giardino.
+            </h2>
+            <p data-i18n="olivetta.kitchenP1">
+              Aperta su tre lati, la cucina di Olivetta non è una stanza chiusa: è uno spazio tra casa e giardino, con piano cottura a gas, lavandino, frigorifero e un grande tavolo per mangiare in quattro. La colazione si fa al sole del mattino, la cena al tramonto, sempre con l'arcipelago davanti.
+            </p>
+            <p data-i18n="olivetta.kitchenP2">
+              Accanto, una dispensa al chiuso ospita stoviglie, frigorifero e cibo: tutto è ordinato e protetto, niente resta esposto agli elementi.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FACILITIES + PREZZI (split 2 colonne)
+         Stessa struttura di Villa Anna, scalata per Olivetta:
+         7 categorie funzionali nella facility-list,
+         price-table + 4 note coerenti con Villa Anna.
+         ============================================================ -->
+    <section class="property-info">
+      <div class="container">
+        <div class="property-info__grid">
+
+          <!-- Colonna sinistra: Caratteristiche per categorie -->
+          <div class="fade-in">
+            <span class="section-header__eyebrow" data-i18n="olivetta.facilitiesEyebrow">Caratteristiche</span>
+            <h2 class="property-info__col-title" data-i18n="olivetta.facilitiesTitle">La casa</h2>
+
+            <ul class="facility-list">
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="olivetta.labelInterior">Spazi interni</div>
+                <div class="facility-list__value" data-i18n="olivetta.valueInterior">
+                  Due camere e due bagni in totale.<br>
+                  1 camera matrimoniale (letto 140 cm) · 1 camera doppia (letti unibili).<br>
+                  1 bagno completo interno · 1 bagno con WC e lavandino · Doccia esterna.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="olivetta.labelOutdoor">Spazi esterni</div>
+                <div class="facility-list__value" data-i18n="olivetta.valueOutdoor">
+                  Terrazza panoramica con vista sull'arcipelago.<br>
+                  Portico con cucina aperta su tre lati · Doccia esterna · Barbecue.<br>
+                  Scalinata privata che scende verso la spiaggia di Canneto.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="olivetta.labelKitchen">Cucina</div>
+                <div class="facility-list__value" data-i18n="olivetta.valueKitchen">
+                  Cucina esterna sotto portico, completamente attrezzata.<br>
+                  Piano cottura a gas a 4 fuochi · Lavandino · Frigorifero · Stoviglie complete · Tavolo da 4.<br>
+                  Dispensa al chiuso adiacente, dove tutto resta ordinato e protetto.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="olivetta.labelEquipment">Dotazione</div>
+                <div class="facility-list__value" data-i18n="olivetta.valueEquipment">
+                  Biancheria completa · Lavatrice · Asciugacapelli · Ventilatori · Pulizie finali incluse.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="olivetta.labelLocation">Posizione e accesso</div>
+                <div class="facility-list__value" data-i18n="olivetta.valueLocation">
+                  A 400 metri sul livello del mare, sulla strada per Pirrera, accanto a Villa Anna.<br>
+                  Spiaggia di Canneto: pochi minuti a piedi dalla scalinata, oppure 5 minuti in auto.<br>
+                  Parcheggio: 2-3 posti auto su strada adiacente.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="olivetta.labelGuests">Ospiti</div>
+                <div class="facility-list__value" data-i18n="olivetta.valueGuests">
+                  Fino a 4 persone. Ideale per coppie e piccole famiglie.<br>
+                  Bambini benvenuti (porta i tuoi accessori se servono).<br>
+                  Animali non ammessi. Fumatori: solo all'esterno.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="olivetta.labelCheckin">Check-in / Check-out</div>
+                <div class="facility-list__value" data-i18n="olivetta.valueCheckin">
+                  Check-in dalle 15:00 · Check-out entro le 11:00.
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- Colonna destra: Prezzi -->
+          <div class="fade-in delay-2">
+            <span class="section-header__eyebrow" data-i18n="olivetta.pricesEyebrow">Tariffe</span>
+            <h2 class="property-info__col-title" data-i18n="olivetta.pricesTitle">Prezzi</h2>
+
+            <div class="price-table">
+              <div class="price-table__row">
+                <div class="price-table__period" data-i18n="olivetta.pricePeriod1">Giugno / Settembre</div>
+                <div>
+                  <span class="price-table__amount" data-i18n="olivetta.priceAmount1">€1.050</span>
+                  <span class="price-table__unit" data-i18n="olivetta.priceUnit"> / 7 notti</span>
+                </div>
+              </div>
+              <div class="price-table__row">
+                <div class="price-table__period" data-i18n="olivetta.pricePeriod2">Luglio</div>
+                <div>
+                  <span class="price-table__amount" data-i18n="olivetta.priceAmount2">€1.150</span>
+                  <span class="price-table__unit" data-i18n="olivetta.priceUnit"> / 7 notti</span>
+                </div>
+              </div>
+              <div class="price-table__row">
+                <div class="price-table__period" data-i18n="olivetta.pricePeriod3">Agosto</div>
+                <div>
+                  <span class="price-table__amount" data-i18n="olivetta.priceAmount3">€1.350</span>
+                  <span class="price-table__unit" data-i18n="olivetta.priceUnit"> / 7 notti</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Note multiple sotto la tabella prezzi (stesse 4 di Villa Anna) -->
+            <div class="price-notes">
+              <p class="price-notes__item" data-i18n="olivetta.priceNote1">
+                Pulizie incluse. Soggiorno minimo 7 notti (sabato-sabato preferibile).
+              </p>
+              <p class="price-notes__item" data-i18n="olivetta.priceNote2">
+                Pagamento: caparra di 2 notti al momento della prenotazione (non rimborsabile in caso di cancellazione). Il saldo è da versare entro una settimana prima del check-in.
+              </p>
+              <p class="price-notes__item" data-i18n="olivetta.priceNote3">
+                Bassa stagione (aprile-maggio, ottobre): disponibile su richiesta.
+              </p>
+              <p class="price-notes__item" data-i18n="olivetta.priceNote4">
+                Sconti per soggiorni di un mese: contattaci per un preventivo dedicato.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BANNER FOTO INTERMEDIO (full-bleed)
+         La foto dell'arcipelago vista dal portico/giardino di Olivetta —
+         racconta la posizione e la cornice della casa.
+         Stesso aspect-ratio cinematografico del banner di Villa Anna
+         (32:9 desktop, 4:5 mobile) per piena coerenza.
+         ============================================================ -->
+    <section class="property-banner fade-in" aria-hidden="true">
+      <img src="assets/png/foto-vista.png"
+           alt=""
+           class="property-banner__img">
+    </section>
+
+    <!-- ============================================================
+         GALLERY — 6 thumbnail in anteprima + lightbox con tutte le 8 foto
+         Stesse classi e attributi di Villa Anna per riusare interamente
+         il JS del lightbox (data-lightbox-index, data-lightbox-open,
+         .lightbox-data hidden).
+         ============================================================ -->
+    <section class="property-gallery">
+      <div class="container">
+
+        <div class="section-header fade-in">
+          <span class="section-header__eyebrow" data-i18n="olivetta.galleryEyebrow">Gallery</span>
+          <h2 class="section-header__title" data-i18n="olivetta.galleryTitle">Dentro Olivetta</h2>
+        </div>
+
+        <!-- Anteprima: 6 foto in composizione asimmetrica -->
+        <div class="property-gallery__grid">
+
+          <button class="property-gallery__item--large fade-in" type="button" data-lightbox-index="0">
+            <div class="aspect-landscape">
+              <img src="assets/jpg/olivetta/foto-olivetta-copertina.jpg"
+                   alt="Olivetta — cucina sotto il portico"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+          <button class="property-gallery__item--small fade-in delay-1" type="button" data-lightbox-index="1">
+            <div class="aspect-portrait">
+              <img src="assets/jpg/olivetta/foto-olivetta-esterno-strada.jpg"
+                   alt="Olivetta — dettaglio del portico"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+          <button class="property-gallery__item--half fade-in" type="button" data-lightbox-index="2">
+            <div class="aspect-landscape">
+              <img src="assets/jpg/olivetta/foto-olivetta-terrazzo-frontale.jpg"
+                   alt="Olivetta — terrazza con vista"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+          <button class="property-gallery__item--half fade-in delay-1" type="button" data-lightbox-index="3">
+            <div class="aspect-landscape">
+              <img src="assets/jpg/olivetta/foto-olivetta-camera2.jpg"
+                   alt="Olivetta — camera matrimoniale"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+          <button class="property-gallery__item--half fade-in" type="button" data-lightbox-index="4">
+            <div class="aspect-landscape">
+              <img src="assets/jpg/olivetta/foto-olivetta-camera1.jpg"
+                   alt="Olivetta — camera doppia"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+          <button class="property-gallery__item--half fade-in delay-1" type="button" data-lightbox-index="5">
+            <div class="aspect-landscape">
+              <img src="assets/jpg/olivetta/foto-olivetta-vista.jpg"
+                   alt="Olivetta — vista di giorno sull'arcipelago"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+        </div>
+
+        <!-- CTA verso il lightbox completo -->
+        <div class="property-gallery__cta fade-in">
+          <button type="button" class="btn-ghost" data-lightbox-open>
+            <span data-i18n="olivetta.galleryAllCta">Vedi tutte le foto (12)</span>
+            <span class="btn-ghost__arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <!-- Dataset nascosto per il lightbox: tutte le 12 foto di Olivetta -->
+        <ul class="lightbox-data" hidden aria-hidden="true">
+          <li data-src="assets/jpg/olivetta/foto-olivetta-terrazzo1.jpg" data-alt="Olivetta — foto terrazzo"></li>
+          <li data-src="assets/jpg/olivetta/foto-olivetta-terrazzo2.jpg" data-alt="Olivetta — cfoto terrazzo"></li>
+          <li data-src="assets/jpg/olivetta/foto-olivetta-terrazzo3.jpg" data-alt="Olivetta — foto terrazzo"></li>
+          <li data-src="assets/jpg/olivetta/foto-olivetta-terrazzo-frontale.jpg" data-alt="Olivetta — foto terrazzo frontale"></li>
+          <li data-src="assets/jpg/olivetta/foto-olivetta-copertina.jpg" data-alt="Olivetta — foto cucina"></li>
+          <li data-src="assets/png/olivetta/foto-olivetta-cucina1.png" data-alt="Olivetta — foto cucina"></li>
+          <li data-src="assets/jpg/olivetta/foto-olivetta-dispensa1.jpg" data-alt="Olivetta — foto dispensa"></li>
+          <li data-src="assets/jpg/olivetta/foto-olivetta-dispensa2.jpg" data-alt="Olivetta — foto dispensa"></li>
+          <li data-src="assets/jpg/olivetta/foto-olivetta-camera1.jpg" data-alt="Olivetta — camera matrimoniale"></li>
+          <li data-src="assets/jpg/olivetta/foto-olivetta-camera2.jpg" data-alt="Olivetta — camera doppia"></li>
+          <li data-src="assets/jpg/olivetta/foto-olivetta-bagno1.jpg" data-alt="Olivetta — bagno interno"></li>
+          <li data-src="assets/jpg/olivetta/foto-olivetta-vista.jpg" data-alt="Olivetta — vista di giorno sull'arcipelago"></li>
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA FINALE (sezione salvia) — identica a Villa Anna
+         ============================================================ -->
+    <section class="property-cta">
+      <div class="container">
+        <h2 class="fade-in" data-i18n="olivetta.ctaTitle">
+          Hai domande o vuoi prenotare? Scrivimi, rispondo entro 24 ore. — Greta
+        </h2>
+        <div class="property-cta__buttons fade-in delay-1">
+          <a href="https://wa.me/39XXXXXXXXXX"
+             class="btn btn--primary"
+             target="_blank"
+             rel="noopener"
+             data-i18n="olivetta.ctaWhatsapp">
+            Scrivici su WhatsApp
+          </a>
+          <a href="mailto:greta.andreolli@gmail.com"
+             class="btn btn--dark"
+             data-i18n="olivetta.ctaEmail">
+            Manda un'email
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/template.js"></script>
+  <script src="js/translation.js"></script>
+</body>
+</html>

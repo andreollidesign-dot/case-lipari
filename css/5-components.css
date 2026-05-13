@@ -1,0 +1,562 @@
+/* ==========================================================================
+   5-components.css
+   Componenti riutilizzabili: bottoni, card, accordion, placeholder, etc.
+   ========================================================================== */
+
+/* ==========================================================================
+   BOTTONI / CTA
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  padding: var(--space-sm) var(--space-lg);
+  border: 1px solid currentColor;
+  background-color: transparent;
+  color: var(--color-blu-notte);
+  cursor: pointer;
+  transition: background-color var(--transition-medium),
+              border-color var(--transition-medium),
+              color var(--transition-medium);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: var(--color-blu-notte);
+  color: var(--color-bianco-calce);
+}
+
+.btn--primary {
+  background-color: var(--color-ocra-dorata);
+  border-color: var(--color-ocra-dorata);
+  color: var(--color-bianco-calce);
+  border-width: 2px;
+}
+
+.btn--primary:hover {
+  background-color: var(--color-ocra-scura);
+  border-color: var(--color-ocra-scura);
+  color: var(--color-bianco-calce);
+  border-width: 2px;
+}
+
+.btn--dark {
+  background-color: var(--color-bianco-calce);
+  border-color: var(--color-ocra-dorata);
+  color: var(--color-ocra-dorata);
+  border-width: 2px;
+}
+
+.btn--dark:hover {
+  background-color: var(--color-bianco-calce);
+  border-color: var(--color-ocra-scura);
+  color: var(--color-ocra-scura);
+  border-width: 2px;
+}
+
+/* Variante LIGHT (su sfondo scuro / hero, qualora servisse riusarla)
+   Mantenuta per retrocompatibilità con eventuali altri usi */
+.btn--light {
+  border-color: var(--color-bianco-calce);
+  color: var(--color-bianco-calce);
+}
+
+.btn--light:hover {
+  background-color: var(--color-bianco-calce);
+  color: var(--color-blu-notte);
+}
+
+/* Variante "ghost" — solo testo con freccia */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-blu-notte);
+  padding-bottom: var(--space-3xs);
+  border-bottom: 1px solid var(--color-blu-notte);
+  transition: color var(--transition-fast),
+              border-color var(--transition-fast),
+              gap var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  color: var(--color-ocra-dorata);
+  border-bottom-color: var(--color-ocra-dorata);
+  gap: var(--space-sm);
+}
+
+.property-card:hover .btn-ghost {
+  color: var(--color-ocra-dorata);
+  border-bottom-color: var(--color-ocra-dorata);
+  gap: var(--space-sm);
+}
+
+.property-card:hover .btn-ghost__arrow {
+  transform: translateX(4px);
+}
+
+.btn-ghost__arrow {
+  display: inline-block;
+  transition: transform var(--transition-fast);
+}
+
+.btn-ghost:hover .btn-ghost__arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   PLACEHOLDER FOTO
+   ========================================================================== */
+
+.photo-placeholder {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-placeholder);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--color-blu-notte-faint);
+}
+
+.photo-placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 14px,
+      rgba(122, 140, 110, 0.08) 14px,
+      rgba(122, 140, 110, 0.08) 15px
+    );
+  pointer-events: none;
+}
+
+.photo-placeholder__label {
+  position: relative;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-verde-salvia);
+  text-align: center;
+  padding: var(--space-md);
+  background-color: var(--color-placeholder);
+  border: 1px solid rgba(122, 140, 110, 0.3);
+  max-width: 80%;
+}
+
+/* Aspect ratios per i placeholder */
+.aspect-hero {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-hero-tall {
+  aspect-ratio: 3 / 2;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+.aspect-landscape {
+  aspect-ratio: 4 / 3;
+}
+
+@media (max-width: 768px) {
+  .aspect-hero {
+    aspect-ratio: 4 / 5;
+  }
+}
+
+/* ==========================================================================
+   CARD PROPRIETÀ (home)
+   ========================================================================== */
+
+.property-card {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  transition: transform var(--transition-medium);
+}
+
+.property-card__media {
+  margin-bottom: var(--space-md);
+  overflow: hidden;
+}
+
+.property-card__media .property-card__img {
+  transition: transform var(--transition-slow);
+}
+
+.property-card:hover .property-card__img {
+  transform: scale(1.02);
+}
+
+.property-card__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-verde-salvia);
+  margin-bottom: var(--space-2xs);
+}
+
+.property-card__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-2xs);
+}
+
+.property-card__meta {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+  color: var(--color-blu-notte-soft);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.02em;
+  transition: color var(--transition-fast);
+}
+
+.property-card__desc {
+  margin-bottom: var(--space-md);
+  color: var(--color-blu-notte-soft);
+  max-width: 480px;
+  white-space: pre-line;
+}
+/* ==========================================================================
+   ACCORDION (FAQ)
+   ========================================================================== */
+
+.accordion {
+  border-top: 1px solid var(--color-blu-notte-faint);
+}
+
+.accordion__item {
+  border-bottom: 1px solid var(--color-blu-notte-faint);
+}
+
+.accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-h5);
+  font-weight: var(--fw-regular);
+  color: var(--color-blu-notte);
+  text-align: left;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.accordion__trigger:hover {
+  color: var(--color-ocra-dorata);
+}
+
+.accordion__icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+}
+
+.accordion__icon::before,
+.accordion__icon::after {
+  content: "";
+  position: absolute;
+  background-color: currentColor;
+  transition: transform var(--transition-medium);
+}
+
+.accordion__icon::before {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.accordion__icon::after {
+  left: 50%;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+.accordion__item.is-open .accordion__icon::after {
+  transform: translateX(-50%) rotate(90deg);
+}
+
+.accordion__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-medium);
+}
+
+.accordion__inner {
+  padding-bottom: var(--space-lg);
+  color: var(--color-blu-notte-soft);
+  max-width: var(--container-narrow);
+}
+
+.accordion__inner p + p {
+  margin-top: var(--space-sm);
+}
+
+/* Link CTA inline dentro una FAQ (es. "Apri in Google Maps"):
+   spaziato dal paragrafo precedente, sottolineato in ocra dorata
+   per essere riconoscibile come azione. */
+.accordion__cta {
+  margin-top: var(--space-md);
+}
+
+.accordion__cta a {
+  color: var(--color-ocra-dorata);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-weight: var(--fw-medium);
+}
+
+.accordion__cta a:hover {
+  text-decoration-thickness: 2px;
+}
+
+/* ==========================================================================
+   FLOATING WHATSAPP (mobile)
+   ========================================================================== */
+
+.whatsapp-float {
+  display: none;
+  position: fixed;
+  bottom: var(--space-md);
+  right: var(--space-md);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: #25D366;
+  color: var(--color-bianco-calce);
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(28, 43, 58, 0.2);
+  z-index: var(--z-floating-cta);
+  transition: transform var(--transition-fast),
+              box-shadow var(--transition-fast);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(28, 43, 58, 0.25);
+  color: var(--color-bianco-calce);
+}
+
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 900px) {
+  .whatsapp-float {
+    display: flex;
+  }
+}
+
+/* ==========================================================================
+   FADE-IN AL SCROLL (micro-animazione)
+   ========================================================================== */
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 800ms var(--ease-out),
+              transform 800ms var(--ease-out);
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger per gruppi */
+.fade-in.delay-1 { transition-delay: 100ms; }
+.fade-in.delay-2 { transition-delay: 200ms; }
+.fade-in.delay-3 { transition-delay: 300ms; }
+.fade-in.delay-4 { transition-delay: 400ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   GALLERY GRID
+   ========================================================================== */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.gallery-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 768px) {
+  .gallery-grid,
+  .gallery-grid--3 {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+}
+
+/* ==========================================================================
+   SECTION HEADER (eyebrow + titolo + sottotitolo)
+   ========================================================================== */
+
+.section-header {
+  margin-bottom: var(--space-2xl);
+  max-width: var(--container-narrow);
+}
+
+.section-header--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-header__eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-verde-salvia);
+  margin-bottom: var(--space-sm);
+  display: block;
+}
+
+.section-header__title {
+  margin-bottom: var(--space-sm);
+}
+
+.section-header__subtitle {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  font-style: italic;
+  color: var(--color-blu-notte-soft);
+}
+
+/* ==========================================================================
+   BLOCKQUOTE / PULL QUOTE (per descrizioni evocative)
+   ========================================================================== */
+
+.pull-quote {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  line-height: var(--lh-tight);
+  color: var(--color-blu-notte);
+  max-width: var(--container-narrow);
+  padding-left: var(--space-md);
+  border-left: 1px solid var(--color-ocra-dorata);
+}
+
+/* ==========================================================================
+   FACILITY LIST (per camere/bagni/incluso)
+   ========================================================================== */
+
+.facility-list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.facility-list__item {
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-blu-notte-faint);
+}
+
+.facility-list__item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.facility-list__label {
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-verde-salvia);
+  margin-bottom: var(--space-2xs);
+}
+
+.facility-list__value {
+  font-size: var(--fs-body);
+  color: var(--color-blu-notte);
+}
+
+/* ==========================================================================
+   PRICE TABLE
+   ========================================================================== */
+
+.price-table {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--color-blu-notte-faint);
+}
+
+.price-table__row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--color-blu-notte-faint);
+}
+
+.price-table__period {
+  font-family: var(--font-display);
+  font-size: var(--fs-h5);
+  color: var(--color-blu-notte);
+}
+
+.price-table__amount {
+  font-family: var(--font-body);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  color: var(--color-blu-notte);
+}
+
+.price-table__note {
+  font-size: var(--fs-small);
+  color: var(--color-blu-notte-soft);
+  font-style: italic;
+  margin-top: var(--space-md);
+}

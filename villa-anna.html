@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="it" data-i18n-title="villa.title" data-i18n-description="villa.description">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Villa Anna · Casa vacanza per famiglie e gruppi · Lipari, Eolie</title>
+  <meta name="description" content="Villa Anna, casa vacanza a Lipari per famiglie e gruppi fino a 10 persone. Cinque camere, sei bagni, due terrazze panoramiche con vista sull'arcipelago.">
+
+  <link rel="icon" type="image/svg+xml" href="assets/svg/simbolo.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/1-variables.css">
+  <link rel="stylesheet" href="css/2-reset.css">
+  <link rel="stylesheet" href="css/3-base.css">
+  <link rel="stylesheet" href="css/4-layout.css">
+  <link rel="stylesheet" href="css/5-components.css">
+  <link rel="stylesheet" href="css/7-villa-anna.css">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+
+   <!-- ============================================================
+         HERO FULL-BLEED CON CAROSELLO
+         3 foto in dissolvenza incrociata (facciata → terrazzo giorno → terrazzo notte)
+         Cambio automatico ogni 6 secondi, transizione 1 secondo
+         ============================================================ -->
+    <section class="property-hero" data-hero-carousel>
+      <div class="property-hero__bg">
+        <!-- Le 3 immagini del carosello sono sovrapposte;
+             la classe is-active determina quale è visibile -->
+        <img src="assets/png/anna/foto-villa-anna-facciata.png"
+             alt="Villa Anna — facciata vista dalla strada di Pirrera"
+             class="property-hero__img is-active"
+             data-hero-slide="0">
+        <img src="assets/png/anna/foto-villa-anna-copertina.png"
+             alt="Villa Anna — terrazzo di giorno con vista sull'arcipelago"
+             class="property-hero__img"
+             data-hero-slide="1">
+        <img src="assets/png/anna/foto-vista-finestra.png"
+             alt="Villa Anna — terrazzo di notte con luci"
+             class="property-hero__img"
+             data-hero-slide="2">
+      </div>
+
+      <div class="container">
+        <div class="property-hero__content">
+
+          <span class="property-hero__eyebrow fade-in" data-i18n="villa.heroEyebrow">
+            Per famiglie e gruppi
+          </span>
+
+          <h1 class="property-hero__title fade-in delay-1" data-i18n="villa.heroTitle">
+            Villa Anna
+          </h1>
+
+          <p class="property-hero__subtitle fade-in delay-2" data-i18n="villa.heroSubtitle">
+            La villa per famiglie e gruppi, con vista sull'arcipelago da ogni stanza
+          </p>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         DESCRIZIONE — 2 paragrafi narrativi (versione B)
+         ============================================================ -->
+    <section class="property-description">
+      <div class="container">
+        <div class="property-description__inner">
+          <p class="fade-in" data-i18n="villa.descP1">
+            A Villa Anna la vista è il filo che tiene insieme tutta la casa. Dalle camere, dalle terrazze, dalla cucina, dal soggiorno — l'arcipelago è sempre nell'inquadratura. Cinque camere su due piani, ciascuna con il suo bagno, perché stare in tanti non significhi rinunciare alla privacy.
+          </p>
+          <p class="fade-in delay-1" data-i18n="villa.descP2">
+            A 400 metri sul livello del mare, l'aria è naturalmente fresca: anche in piena estate, le serate richiedono un golf leggero. Il giardino con barbecue e le due grandi terrazze diventano cucina e sala da pranzo per gli ospiti che vogliono vivere fuori.
+          </p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================================================
+         FACILITIES + PREZZI (split 2 colonne)
+         ============================================================ -->
+    <section class="property-info">
+      <div class="container">
+        <div class="property-info__grid">
+
+          <!-- Colonna sinistra: Caratteristiche per categorie -->
+          <div class="fade-in">
+            <span class="section-header__eyebrow" data-i18n="villa.facilitiesEyebrow">Caratteristiche</span>
+            <h2 class="property-info__col-title" data-i18n="villa.facilitiesTitle">La casa</h2>
+
+            <ul class="facility-list">
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="villa.labelInterior">Spazi interni</div>
+                <div class="facility-list__value" data-i18n="villa.valueInterior">
+                  Cinque camere su due piani, sei bagni in totale.<br>
+                  Piano 1: 2 camere matrimoniali · 3 bagni · cucina abitabile · soggiorno.<br>
+                  Piano 2: 1 camera matrimoniale · 2 camere doppie (letti unibili) · 3 bagni.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="villa.labelOutdoor">Spazi esterni</div>
+                <div class="facility-list__value" data-i18n="villa.valueOutdoor">
+                  Due grandi terrazze panoramiche · Giardino con barbecue.<br>
+                  Tutte le camere sono affacciate sul panorama.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="villa.labelKitchen">Cucina</div>
+                <div class="facility-list__value" data-i18n="villa.valueKitchen">
+                  Cucina abitabile completamente attrezzata · Forno · Frigorifero · Lavastoviglie · Piano cottura · Stoviglie complete · Bollitore · Moka.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="villa.labelEquipment">Dotazione</div>
+                <div class="facility-list__value" data-i18n="villa.valueEquipment">
+                  Biancheria completa · Lavatrice · Asciugacapelli · Ventilatori in tutte le camere · Pulizie finali incluse.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="villa.labelLocation">Posizione e accesso</div>
+                <div class="facility-list__value" data-i18n="villa.valueLocation">
+                  A 400 metri sul livello del mare, sulla strada per Pirrera.<br>
+                  Spiaggia di Canneto: 5 minuti in auto.<br>
+                  Parcheggio: 2-3 posti auto su strada adiacente.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="villa.labelGuests">Ospiti</div>
+                <div class="facility-list__value" data-i18n="villa.valueGuests">
+                  Fino a 10 persone. Bambini benvenuti (porta i tuoi accessori se servono).<br>
+                  Animali non ammessi. Fumatori: solo all'esterno.
+                </div>
+              </li>
+
+              <li class="facility-list__item">
+                <div class="facility-list__label" data-i18n="villa.labelCheckin">Check-in / Check-out</div>
+                <div class="facility-list__value" data-i18n="villa.valueCheckin">
+                  Check-in dalle 15:00 · Check-out entro le 11:00.
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- Colonna destra: Prezzi -->
+          <div class="fade-in delay-2">
+            <span class="section-header__eyebrow" data-i18n="villa.pricesEyebrow">Tariffe</span>
+            <h2 class="property-info__col-title" data-i18n="villa.pricesTitle">Prezzi</h2>
+
+            <div class="price-table">
+              <div class="price-table__row">
+                <div class="price-table__period" data-i18n="villa.pricePeriod1">Giugno / Settembre</div>
+                <div>
+                  <span class="price-table__amount" data-i18n="villa.priceAmount1">€2.750</span>
+                  <span class="price-table__unit" data-i18n="villa.priceUnit"> / 7 notti</span>
+                </div>
+              </div>
+              <div class="price-table__row">
+                <div class="price-table__period" data-i18n="villa.pricePeriod2">Luglio</div>
+                <div>
+                  <span class="price-table__amount" data-i18n="villa.priceAmount2">€2.900</span>
+                  <span class="price-table__unit" data-i18n="villa.priceUnit"> / 7 notti</span>
+                </div>
+              </div>
+              <div class="price-table__row">
+                <div class="price-table__period" data-i18n="villa.pricePeriod3">Agosto</div>
+                <div>
+                  <span class="price-table__amount" data-i18n="villa.priceAmount3">€3.050</span>
+                  <span class="price-table__unit" data-i18n="villa.priceUnit"> / 7 notti</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Note multiple sotto la tabella prezzi -->
+            <div class="price-notes">
+              <p class="price-notes__item" data-i18n="villa.priceNote1">
+                Pulizie incluse. Soggiorno minimo 7 notti (sabato-sabato preferibile).
+              </p>
+              <p class="price-notes__item" data-i18n="villa.priceNote2">
+                Pagamento: caparra di 2 notti al momento della prenotazione (non rimborsabile in caso di cancellazione). Il saldo è da versare entro una settimana prima del check-in.
+              </p>
+              <p class="price-notes__item" data-i18n="villa.priceNote3">
+                Bassa stagione (aprile-maggio, ottobre): disponibile su richiesta.
+              </p>
+              <p class="price-notes__item" data-i18n="villa.priceNote4">
+                Sconti per soggiorni di un mese: contattaci per un preventivo dedicato.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+      <!-- ============================================================
+         BANNER FOTO NOTTE (full-bleed)
+         ============================================================ -->
+    <section class="property-banner fade-in" aria-hidden="true">
+      <img src="assets/png/foto-vista-notte.png"
+           alt=""
+           class="property-banner__img">
+    </section>
+
+    <!-- ============================================================
+         GALLERY (anteprima 6 foto + lightbox per tutte le 13)
+         ============================================================ -->
+    <section class="property-gallery">
+      <div class="container">
+
+        <div class="section-header fade-in">
+          <span class="section-header__eyebrow" data-i18n="villa.galleryEyebrow">Gallery</span>
+          <h2 class="section-header__title" data-i18n="villa.galleryTitle">La casa, dentro e fuori</h2>
+        </div>
+
+        <!-- Anteprima: 6 foto in composizione asymmetric -->
+        <div class="property-gallery__grid">
+
+          <button class="property-gallery__item--large fade-in" type="button" data-lightbox-index="0">
+            <div class="aspect-landscape">
+              <img src="assets/jpg/anna/foto-anna-terrazzo.jpg"
+                   alt="Villa Anna — foto terrazzo di giorno"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+          <button class="property-gallery__item--small fade-in delay-1" type="button" data-lightbox-index="1">
+            <div class="aspect-portrait">
+              <img src="assets/jpg/anna/foto-anna-corridoio.jpg"
+                   alt="Villa Anna — foto corridoio"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+          <button class="property-gallery__item--half fade-in" type="button" data-lightbox-index="2">
+            <div class="aspect-landscape">
+              <img src="assets/jpg/anna/foto-anna-cucina.jpg"
+                   alt="Villa Anna — foto cucina"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+          <button class="property-gallery__item--half fade-in delay-1" type="button" data-lightbox-index="3">
+            <div class="aspect-landscape">
+              <img src="assets/jpg/anna/foto-anna-camera4.jpg"
+                   alt="Villa Anna — foto camera"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+          <button class="property-gallery__item--half fade-in" type="button" data-lightbox-index="4">
+            <div class="aspect-landscape">
+              <img src="assets/jpg/anna/foto-anna-vista-camera2.jpg"
+                   alt="Villa Anna — foto terrazzo"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+          <button class="property-gallery__item--half fade-in delay-1" type="button" data-lightbox-index="5">
+            <div class="aspect-landscape">
+              <img src="assets/jpg/anna/foto-anna-camera3.jpg"
+                   alt="Villa Anna — terrazzo di notte con luci"
+                   class="property-gallery__img">
+            </div>
+          </button>
+
+        </div>
+
+        <!-- CTA verso il lightbox completo -->
+        <div class="property-gallery__cta fade-in">
+          <button type="button" class="btn-ghost" data-lightbox-open>
+            <span data-i18n="villa.galleryAllCta">Vedi tutte le foto (20)</span>
+            <span class="btn-ghost__arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <!-- Dataset nascosto per il lightbox: tutte le 22 foto -->
+        <!-- L'ordine qui sotto è quello con cui appariranno nel lightbox -->
+        <ul class="lightbox-data" hidden aria-hidden="true">
+          <li data-src="assets/jpg/anna/foto-hero.jpg" data-alt="Villa Anna — foto cucina"></li>
+          <li data-src="assets/jpg/anna/foto-anna-soggiorno2.jpg" data-alt="Villa Anna — foto soggiorno"></li>
+          <li data-src="assets/jpg/anna/foto-anna-soggiorno.jpg" data-alt="Villa Anna — foto soggiorno"></li>
+          <li data-src="assets/jpg/anna/foto-anna-cucina2.jpg" data-alt="Villa Anna — foto cucina"></li>
+          <li data-src="assets/jpg/anna/foto-anna-cucina.jpg" data-alt="Villa Anna — foto cucina"></li>
+          <li data-src="assets/jpg/anna/foto-anna-camera1.jpg" data-alt="Villa Anna — foto camera 1"></li>
+          <li data-src="assets/jpg/anna/foto-anna-vista-camera1.jpg" data-alt="Villa Anna — foto vista camera 1"></li>
+          <li data-src="assets/jpg/anna/foto-anna-bagno-camera1.jpg" data-alt="Villa Anna — foto bagno camera 1"></li>
+          <li data-src="assets/jpg/anna/foto-anna-camera2.jpg" data-alt="Villa Anna — foto camera 2"></li>
+          <li data-src="assets/jpg/anna/foto-anna-vista-camera2.jpg" data-alt="Villa Anna — foto vista camera 2"></li>
+          <li data-src="assets/jpg/anna/foto-anna-esterno.jpg" data-alt="Villa Anna — foto esterno"></li>
+          <li data-src="assets/jpg/anna/foto-anna-camera3.jpg" data-alt="Villa Anna — foto camera 3"></li>
+          <li data-src="assets/jpg/anna/foto-anna-vista-camera3.jpg" data-alt="Villa Anna — foto vista camera 3"></li>
+          <li data-src="assets/jpg/anna/foto-anna-camera4.jpg" data-alt="Villa Anna — foto camera 4"></li>
+          <li data-src="assets/jpg/anna/foto-anna-vista-camera4.jpg" data-alt="Villa Anna — foto vista camera 4"></li>
+          <li data-src="assets/jpg/anna/foto-anna-bagno-camera4.jpg" data-alt="Villa Anna — foto bagno camera 4"></li>
+          <li data-src="assets/jpg/anna/foto-anna-camera5.jpg" data-alt="Villa Anna — foto camera 5"></li>
+          <li data-src="assets/jpg/anna/foto-anna-vista-camera5.jpg" data-alt="Villa Anna — foto vista camera 5"></li>
+          <li data-src="assets/jpg/anna/foto-anna-bagno-camera5.jpg" data-alt="Villa Anna — foto bagno camera 5"></li>
+          <li data-src="assets/jpg/anna/foto-anna-vista-esterna.jpg" data-alt="Villa Anna — foto vista esterna"></li>
+         
+        </ul>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA FINALE (sezione salvia)
+         ============================================================ -->
+    <section class="property-cta">
+      <div class="container">
+        <h2 class="fade-in" data-i18n="villa.ctaTitle">
+         Hai domande o vuoi prenotare? Scrivimi, rispondo entro 24 ore. — Greta
+        </h2>
+        <div class="property-cta__buttons fade-in delay-1">
+          <a href="https://wa.me/39XXXXXXXXXX"
+             class="btn btn--primary"
+             target="_blank"
+             rel="noopener"
+             data-i18n="villa.ctaWhatsapp">
+            Scrivici su WhatsApp
+          </a>
+          <a href="mailto:greta.andreolli@gmail.com"
+             class="btn btn--dark"
+             data-i18n="villa.ctaEmail">
+            Manda un'email
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/template.js"></script>
+  <script src="js/translation.js"></script>
+</body>
+</html>

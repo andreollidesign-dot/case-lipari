@@ -1,0 +1,132 @@
+/* ==========================================================================
+   7-guida-lipari.css
+   Stili specifici della pagina GUIDA A LIPARI
+   ========================================================================== */
+
+/* --- Hero della guida -------------------------------------------------- */
+.guide-hero {
+  padding-top: var(--space-3xl);
+  padding-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.guide-hero__inner {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+}
+
+.guide-hero__eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label-wide);
+  color: var(--color-verde-salvia);
+  margin-bottom: var(--space-md);
+}
+
+.guide-hero__title {
+  font-size: var(--fs-h1);
+  font-style: italic;
+  margin-bottom: var(--space-md);
+  line-height: var(--lh-tight);
+}
+
+.guide-hero__intro {
+  font-size: var(--fs-h5);
+  line-height: var(--lh-body);
+  color: var(--color-blu-notte-soft);
+}
+
+/* --- Sezioni della guida ----------------------------------------------- */
+.guide-section {
+  padding-block: var(--space-3xl);
+}
+
+/* Sfondi alternati: dispari bianco-calce, pari bianco-calce-soft */
+.guide-section:nth-of-type(even) {
+  background-color: var(--color-bianco-calce-soft);
+}
+
+.guide-section:last-child {
+  border-bottom: none;
+}
+
+.guide-section__inner {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+}
+
+.guide-section__number {
+  font-family: var(--font-display);
+  font-size: 88px;
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  color: var(--color-ocra-dorata);
+  margin-bottom: 0;
+  line-height: 0.85;
+  display: block;
+}
+
+.guide-section__title {
+  font-size: var(--fs-h2);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  line-height: var(--lh-tight);
+}
+
+.guide-section__body p {
+  font-size: var(--fs-body);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+  color: var(--color-blu-notte);
+}
+
+.guide-section__body p:last-child {
+  margin-bottom: 0;
+}
+
+.guide-section__body strong {
+  font-weight: var(--fw-semibold);
+}
+
+/* Callout importante (per restrizione auto, ecc.) */
+.guide-callout {
+  background-color: var(--color-bianco-calce);
+  border: 1px solid var(--color-blu-notte-faint);
+  border-left: 3px solid var(--color-ocra-dorata);
+  padding: var(--space-md) var(--space-lg);
+  margin-block: var(--space-md);
+}
+
+.guide-callout__label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-label);
+  color: var(--color-ocra-dorata);
+  margin-bottom: var(--space-2xs);
+}
+
+.guide-callout p {
+  margin-bottom: 0 !important;
+  font-size: var(--fs-body);
+}
+
+/* Link mappa */
+.guide-map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  margin-top: var(--space-md);
+}
+
+/* --- Adattamento mobile ------------------------------------------------ */
+@media (max-width: 768px) {
+  .guide-section__number {
+    font-size: 64px;
+  }
+}

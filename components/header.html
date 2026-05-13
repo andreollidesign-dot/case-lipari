@@ -1,0 +1,54 @@
+<!-- ============================================================
+     HEADER COMPONENT
+     Caricato dinamicamente da template.js in tutte le pagine.
+     NOTA STRUTTURALE:
+     Su mobile il drawer della nav deve uscire dallo stacking
+     context dell'header (position:fixed + z-index), altrimenti
+     resta intrappolato sotto al backdrop e i click non arrivano
+     alle voci. Per questo la <nav> è messa FUORI dall'<header>,
+     come fratello, non figlio.
+     ============================================================ -->
+
+<header class="site-header">
+  <div class="container site-header__inner">
+
+    <!-- Logo -->
+    <a href="index.html" class="site-header__logo" aria-label="Zagara, Home">
+      <img src="assets/svg/ZAGARA.svg" alt="Zagara" data-i18n-alt="header.logoAlt">
+    </a>
+
+    <!-- Hamburger (visibile solo su mobile) -->
+    <button type="button" class="hamburger"
+            aria-label="Menu"
+            aria-expanded="false"
+            aria-controls="site-nav">
+      <span class="hamburger__lines">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    </button>
+
+  </div>
+</header>
+
+<!-- Navigazione (desktop visibile inline, mobile diventa drawer)
+     Posizionata FUORI dall'header per evitare lo stacking context lock -->
+<nav class="site-nav" id="site-nav" aria-label="Main navigation">
+  <ul class="site-nav__list">
+    <li><a href="index.html" class="site-nav__link" data-i18n="nav.home">Home</a></li>
+    <li><a href="villa-anna.html" class="site-nav__link" data-i18n="nav.villaAnna">Villa Anna</a></li>
+    <li><a href="olivetta.html" class="site-nav__link" data-i18n="nav.olivetta">Olivetta</a></li>
+    <li><a href="guida-lipari.html" class="site-nav__link" data-i18n="nav.guida">Guida a Lipari</a></li>
+    <li><a href="contatti.html" class="site-nav__link" data-i18n="nav.contatti">Prenota</a></li>
+  </ul>
+
+  <!-- Lang switcher -->
+  <div class="lang-switcher" role="group" aria-label="Language">
+    <button type="button" class="lang-switcher__btn" data-lang="it" aria-pressed="true">IT</button>
+    <span class="lang-switcher__sep">·</span>
+    <button type="button" class="lang-switcher__btn" data-lang="en" aria-pressed="false">EN</button>
+    <span class="lang-switcher__sep">·</span>
+    <button type="button" class="lang-switcher__btn" data-lang="de" aria-pressed="false">DE</button>
+  </div>
+</nav>

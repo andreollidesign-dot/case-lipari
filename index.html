@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it" data-i18n-title="home.title" data-i18n-description="home.description">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zagara — Case Vacanza · Lipari, Isole Eolie</title>
+  <meta name="description" content="Due case vacanza a Lipari, sulla strada per Pirrera. Villa Anna per famiglie e gruppi, Olivetta per coppie. Vista sull'arcipelago delle Eolie.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/svg/simbolo-logo.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS (ordine: variables → reset → base → layout → components → page) -->
+  <link rel="stylesheet" href="css/1-variables.css">
+  <link rel="stylesheet" href="css/2-reset.css">
+  <link rel="stylesheet" href="css/3-base.css">
+  <link rel="stylesheet" href="css/4-layout.css">
+  <link rel="stylesheet" href="css/5-components.css">
+  <link rel="stylesheet" href="css/7-home.css">
+</head>
+<body>
+
+  <!-- Header (caricato da template.js) -->
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+         Composizione: eyebrow → simbolo → logotipo → tagline → CTA
+         ============================================================ -->
+    <section class="home-hero">
+      <div class="home-hero__bg">
+        <img src="assets/jpg/anna/foto-hero.jpg"
+             alt="Vista dell'arcipelago delle Eolie da Pirrera"
+             class="home-hero__img">
+      </div>
+
+      <div class="container">
+        <div class="home-hero__content">
+
+          <span class="home-hero__eyebrow fade-in" data-i18n="home.heroEyebrow">
+            Case vacanza · Lipari, Isole Eolie
+          </span>
+
+          <div class="home-hero__brand fade-in delay-1">
+            <img src="assets/svg/simbolo-logo.svg"
+                 alt=""
+                 aria-hidden="true"
+                 class="home-hero__symbol">
+            <img src="assets/svg/ZAGARA.svg"
+                 alt="Zagara"
+                 data-i18n-alt="header.logoAlt"
+                 class="home-hero__logotype">
+          </div>
+
+          <p class="home-hero__tagline fade-in delay-2" data-i18n="home.heroTagline">
+            Due case sulle Eolie, sospese tra l'arcipelago e un giardino di limoni.
+          </p>
+
+          <a href="#properties" class="home-hero__cta fade-in delay-3" data-i18n="home.heroCta">
+            <span>Scopri le case</span>
+            <span class="home-hero__cta-arrow" aria-hidden="true">↓</span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         VIVERE ZAGARA
+         Paragrafi narrativi + blocco pillar (4 fatti)
+         ============================================================ -->
+    <section class="home-intro">
+      <div class="container">
+        <div class="home-intro__inner">
+
+          <span class="home-intro__eyebrow fade-in" data-i18n="home.introEyebrow">
+            Vivere Zagara
+          </span>
+          <h2 class="home-intro__title fade-in delay-1" data-i18n="home.introTitle">
+            Una collina sopra il mare, due case sotto il cielo
+          </h2>
+
+          <div class="home-intro__body">
+            <p class="fade-in delay-2" data-i18n="home.introP1">
+              A Pirrera si sale per cambiare prospettiva. Quattrocento metri di tornanti sopra il mare bastano a cambiare l'aria: qui è fresca anche in agosto, filtrata dai limoni e dagli ulivi. Sotto, il blu dell'arcipelago.
+            </p>
+            <p class="fade-in delay-2" data-i18n="home.introP2">
+              L'architettura è quella tipica, dove il confine tra interno ed esterno sfuma: ci si sveglia con gli alberi alla finestra e si cena in terrazza guardando le isole. Per il mare, basta scegliere tra la passeggiata lungo la scalinata verso Canneto o un breve tragitto in auto.
+            </p>
+            <p class="fade-in delay-3" data-i18n="home.introP3">
+              Le due case sono completamente autonome. Villa Anna è ampia e accogliente, pensata per i gruppi; Olivetta è intima, perfetta per coppie e piccole famiglie. Due modi diversi di abitare lo stesso giardino, con la stessa libertà e la stessa vista.
+            </p>
+          </div>
+
+          <!-- Pillar block: 4 fatti -->
+          <ul class="home-pillars fade-in delay-3">
+            <li class="home-pillars__item">
+              <span class="home-pillars__label" data-i18n="home.pillar1Label">
+                Due case indipendenti
+              </span>
+              <span class="home-pillars__value" data-i18n="home.pillar1Value">
+                Ognuna con i suoi spazi e le sue terrazze. Affittabili insieme se siete un gruppo grande.
+              </span>
+            </li>
+            <li class="home-pillars__item">
+              <span class="home-pillars__label" data-i18n="home.pillar2Label">
+                Da 4 a 10 ospiti
+              </span>
+              <span class="home-pillars__value" data-i18n="home.pillar2Value">
+                Villa Anna fino a 10, Olivetta fino a 4.
+              </span>
+            </li>
+            <li class="home-pillars__item">
+              <span class="home-pillars__label" data-i18n="home.pillar3Label">
+                400 m sul mare
+              </span>
+              <span class="home-pillars__value" data-i18n="home.pillar3Value">
+                Aria fresca tutto l'anno, anche in piena estate.
+              </span>
+            </li>
+            <li class="home-pillars__item">
+              <span class="home-pillars__label" data-i18n="home.pillar4Label">
+                Vista arcipelago
+              </span>
+              <span class="home-pillars__value" data-i18n="home.pillar4Value">
+                Lipari, Vulcano, Salina e Stromboli all'orizzonte.
+              </span>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         BANNER FOTO (full-bleed, vista da Pirrera)
+         ============================================================ -->
+    <section class="home-banner fade-in" aria-hidden="true">
+      <img src="assets/png/foto-vista.png"
+           alt=""
+           class="home-banner__img">
+    </section>
+
+    <!-- ============================================================
+         LE DUE CASE
+         ============================================================ -->
+    <section class="home-properties" id="properties">
+      <div class="container">
+
+        <div class="section-header section-header--center fade-in">
+          <span class="section-header__eyebrow" data-i18n="home.propertiesEyebrow">Le due case</span>
+          <h2 class="section-header__title" data-i18n="home.propertiesTitle">Scegli la tua</h2>
+        </div>
+
+        <div class="home-properties__grid">
+
+          <!-- Card Villa Anna -->
+          <a href="villa-anna.html" class="property-card fade-in">
+            <div class="property-card__media">
+              <div class="aspect-hero">
+                <img src="assets/png/anna/foto-villa-anna-copertina.png"
+                     alt="Villa Anna — vista esterna"
+                     class="property-card__img">
+              </div>
+            </div>
+            <span class="property-card__label" data-i18n="home.villaCardLabel">
+              Per famiglie e gruppi
+            </span>
+            <h3 class="property-card__title" data-i18n="home.villaCardTitle">
+              Villa Anna
+            </h3>
+            <p class="property-card__meta" data-i18n="home.villaCardMeta">
+              5 camere · 6 bagni · fino a 10 ospiti · da €2.750 a settimana
+            </p>
+            <p class="property-card__desc" data-i18n="home.villaCardDesc">
+              Cinque camere su due piani, ognuna con il suo bagno. Due grandi terrazze, giardino con barbecue. Lo spazio per stare insieme senza togliersi privacy a vicenda.
+            </p>
+            <span class="btn-ghost">
+              <span data-i18n="home.villaCardCta">Scopri Villa Anna</span>
+              <span class="btn-ghost__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <!-- Card Olivetta -->
+          <a href="olivetta.html" class="property-card fade-in delay-2">
+            <div class="property-card__media">
+              <div class="aspect-hero">
+                <img src="assets/jpg/olivetta/foto-olivetta-copertina.jpg"
+                     alt="Olivetta — vista esterna"
+                     class="property-card__img">
+              </div>
+            </div>
+            <span class="property-card__label" data-i18n="home.olivettaCardLabel">
+              Per coppie e piccole famiglie
+            </span>
+            <h3 class="property-card__title" data-i18n="home.olivettaCardTitle">
+              Olivetta
+            </h3>
+            <p class="property-card__meta" data-i18n="home.olivettaCardMeta">
+              2 camere · 2 bagni · fino a 4 ospiti · da €1.050 a settimana
+            </p>
+            <p class="property-card__desc" data-i18n="home.olivettaCardDesc">
+              Una piccola casa indipendente, all'ombra di un grande ulivo. Cucina sotto portico aperto, doccia esterna, terrazza con vista. Scalinata che scende a Canneto.
+            </p>
+            <span class="btn-ghost">
+              <span data-i18n="home.olivettaCardCta">Scopri Olivetta</span>
+              <span class="btn-ghost__arrow" aria-hidden="true">→</span>
+            </span>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (caricato da template.js) -->
+  <div id="site-footer"></div>
+
+  <!-- JS -->
+  <script src="js/template.js"></script>
+  <script src="js/translation.js"></script>
+</body>
+</html>
